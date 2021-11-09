@@ -4,26 +4,17 @@ import { Task } from "../Types";
 type Props = {
   task: Task;
 };
-
-function App:<Props> =({task}) => {
+const TaskItem: React.FC<Props> = ({ task }) => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    // リスト表示するのでliタグを使用
+    <li>
+      <label>
+        <input type="checkbox" className="checkbox-input" />
+        <span className="checkbox-label">{task.title}</span>
+      </label>
+      <button className="btn is-delete">削除</button>
+    </li>
   );
-}
+};
 
-export default App;
+export default TaskItem;
